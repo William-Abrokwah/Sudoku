@@ -1,0 +1,9 @@
+body {
+  font-family: Arial;
+}
+
+.game-wrapper {
+  display: flex;
+  width: 730px;
+  justify-content: space-between;
+}
