@@ -1,0 +1,91 @@
+body {
+  font-family: Arial;
+}
+
+.game-wrapper {
+  display: flex;
+  width: 730px;
+  justify-content: space-between;
+}
+
+.game-board {
+  background-color: blue; 
+  width: 426px; 
+  height: 426px;
+}
+
+.game-nav {
+  background-color: red;
+  align-content: end;
+  width: 284px; 
+  height: 426px;
+}
+
+.button:hover {
+  background-color: #e2e5eb;
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #d9dbe0;
+}
+
+.game-controls {
+  display: flex;
+  padding: 0px 5px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.game-control-button {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+}
+
+.game-control-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.numpad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.numpad-item {
+  background-color: #eaeef4;
+  color: #325aaf;
+  font-size: 36px;
+  border: none;
+  border-radius: 5px;
+  width: 90px;
+  height: 70px;
+  margin-bottom: 7px;
+}
+
+.new-game-button {
+  margin-top: 4px;
+  height: 60px;
+  width: 100%;
+  background-color: #325aaf;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.new-game-button:hover {
+  background-color: #5c82d3;
+}
+
+.new-game-button:active {
+  background-color: #2e53a1;
+}
