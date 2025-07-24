@@ -1,4 +1,3 @@
-
 // Linking the cell divs to a 2D 9x9 array
 const grid = [];
 for (let row = 0; row < 9; row++) {
@@ -59,7 +58,8 @@ function solveSudoku(grid) {
   for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
       if (grid[row][col] === 0) {
-        for (let num = 1; num <= 9; num++) {
+        const numbers = shuffleArray([1, 2, 3, 4, 5, 6, 7, 8, 9]); // Randomizing order
+        for (let num of numbers) {
           if (isValid(grid, row, col, num)) {
             grid[row][col] = num;
             if (solveSudoku(grid)) return true;
@@ -67,8 +67,16 @@ function solveSudoku(grid) {
           }
         }
       }
-      return false;
+      return false; // No valid number found so backtrack
     }
   }
   return true;
+}
+
+function shuffleArray(array) {
+  for (let i = array.length -1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+    [array[i], array[j]] = [array[j], array[i]]; // swap elements
+  }
+  return array
 }
