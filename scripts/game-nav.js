@@ -12,7 +12,6 @@ cells.forEach(cell => {
 
 // Changing the value of a cell using numpad
 const numpadButtons = document.querySelectorAll('.numpad-item');
-
 numpadButtons.forEach(button => {
   button.addEventListener('click', () => {
     if (selectedCell) {
@@ -32,5 +31,13 @@ resetButton.addEventListener('click', () => {
 
 // Creating a new board
 function newGame() {
-  
+  initializeGrid();
+  solveSudoku(grid);
+
+  for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      grid[row][col][1].textContent = grid[row][col][0];
+    }
+  }
+  // COME BACK TO LATER
 }
