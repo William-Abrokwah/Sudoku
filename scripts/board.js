@@ -46,3 +46,8 @@ function solveSudoku(grid) {
   }
   return true;
 }
+
+function puzzleDigger() {
+  // remove values from the grid while checking uniqueness to create puzzle
+}
+

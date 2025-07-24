@@ -22,3 +22,7 @@ Javascript
 - Users can click on cells and enter numbers 1-9.
 - Basic rules of Sudoku are enforced: no repeated numbers in rows, columns, or 3x3 grids.
 - Optional: a basic puzzle is preloaded, or you can integrate a random generator.
+
+## Future Additions
+- Implement a storage system for puzzles
+- Preload puzzles at each difficulty level
