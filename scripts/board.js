@@ -1,37 +1,3 @@
-// Linking the cell divs to a 2D 9x9 array
-const grid = [];
-for (let row = 0; row < 9; row++) {
-  for (let col = 0; col < 9; col++) {
-    const cellID = `cell-${row}-${col}`;
-    const cellDiv = document.getElementById(cellID);
-    grid[row][col] = cellDiv;
-  }
-}
-
-// Selecting a cell
-const cells = document.querySelectorAll('.sudoku-cell');
-let selectedCell = null;
-
-cells.forEach(cell => {
-  cell.addEventListener('click', () => {
-    cells.forEach(c => c.classList.remove('selected'));
-    cell.classList.add('selected');
-    selectedCell = cell;
-  });
-});
-
-// Changing the value of a cell using numpad
-const numpadButtons = document.querySelectorAll('.numpad-item');
-
-numpadButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    if (selectedCell) {
-      selectedCell.textContent = button.textContent;
-    }
-  });
-});
-
-
 function isValid(grid, row, col, num) {
   // Verifying row
   for (let x = 0; x < 9; x++) {
@@ -80,3 +46,6 @@ function shuffleArray(array) {
   }
   return array
 }
+
+// Link board on site to 9x9 array
+// If
