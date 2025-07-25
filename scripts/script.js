@@ -10,6 +10,10 @@ function newEmptyGrid() {
       const cellID = `cell-${row}-${col}`;
       const cellDiv = document.getElementById(cellID);
       grid[row][col][1] = cellDiv;
+
+    // Adds borders to inner cells
+    if (col % 3 === 0 || col % 3 === 1) cellDiv.classList.add('right-border');
+    if (row % 3 === 0 || row % 3 === 1) cellDiv.classList.add('bottom-border');
     }
   }
   return grid;

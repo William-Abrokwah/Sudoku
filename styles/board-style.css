@@ -18,11 +18,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 0 solid #325aaf;
   padding: 0px;
   
   vertical-align: middle;
   font-size: 24px;
+}
+
+.sudoku-cell.right-border {
+  border-right: 1px solid #325aaf;
+}
+
+.sudoku-cell.left-border {
+  border-left: 1px solid #325aaf;
+}
+.sudoku-cell.top-border {
+  border-top: 1px solid #325aaf;
+}
+
+.sudoku-cell.bottom-border {
+  border-bottom: 1px solid #325aaf;
 }
 
 .sudoku-cell:nth-child(3n) {

@@ -37,7 +37,11 @@ function newGame() {
 
   for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
-      grid[row][col][1].textContent = grid[row][col][0];
+      if (grid[row][col][0] === 0) {
+        grid[row][col][1].textContent = "";
+      } else {
+        grid[row][col][1].textContent = grid[row][col][0];
+      }
     }
   }
   // COME BACK TO LATER
