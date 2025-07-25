@@ -73,6 +73,7 @@
 
 .new-game-button:hover {
   background-color: #5c82d3;
+  cursor: pointer;
 }
 
 .new-game-button:active {

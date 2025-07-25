@@ -16,6 +16,7 @@ numpadButtons.forEach(button => {
   button.addEventListener('click', () => {
     if (selectedCell) {
       selectedCell.textContent = button.textContent;
+      // Make it change value in grid array as well
     }
   });
 });
@@ -25,7 +26,7 @@ const resetButton = document.getElementById('reset-button')
 resetButton.addEventListener('click', () => {
   if (selectedCell) {
     selectedCell.textContent = '';
-    // COME BACK TO LATER
+    // Make it change value in grid array as well
   }
 });
 
