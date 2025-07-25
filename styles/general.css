@@ -7,11 +7,11 @@ body {
   display: flex;
   width: 730px;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .diff-buttons {
   margin-bottom: 8px;
-  padding: 0px 5px;
   width: 426px;
 }
 
@@ -32,4 +32,28 @@ body {
   border: none;
   color: white;
   background-color: #325aaf;
+}
+
+.check-button {
+  margin-top: 4px;
+  height: 60px;
+  width: 284px;
+  background-color: #325aaf;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.check-button:hover  {
+  background-color: #5c82d3;
+  cursor: pointer;
+}
+
+.check-button:active {
+  border: none;
+  color: white;
+  background-color: #2e53a1;
 }
