@@ -5,14 +5,16 @@
   height: 428px;
 }
 
-.button:hover {
+.nav-button:hover {
   background-color: #e2e5eb;
   cursor: pointer;
 }
 
-.button:active {
+.nav-button:active {
   background-color: #d9dbe0;
 }
+
+/* Game controls styling */
 
 .game-controls {
   display: flex;
@@ -36,6 +38,8 @@
   height: 25px;
 }
 
+/* Numpad styling*/
+
 .numpad {
   display: flex;
   flex-wrap: wrap;
@@ -52,6 +56,8 @@
   height: 70px;
   margin-bottom: 7px;
 }
+
+/* New game button styling*/
 
 .new-game-button {
   margin-top: 4px;

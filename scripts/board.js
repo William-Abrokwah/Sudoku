@@ -98,10 +98,10 @@ function generatePuzzle(difficulty) {
 
   // Choosing clue count based on difficulty
   const cluesNeeded = {
-    easy: 36,
-    medium: 32,
-    hard: 28,
-    expert: 17
+    Easy: 36,
+    Medium: 32,
+    Hard: 28,
+    Expert: 17
   }[difficulty];
 
   // Digging holes in the grid while verifying the existence of a unique solution
@@ -121,4 +121,3 @@ function generatePuzzle(difficulty) {
 
   return grid;
 }
-

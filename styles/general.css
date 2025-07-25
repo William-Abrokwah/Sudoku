@@ -8,3 +8,18 @@ body {
   width: 730px;
   justify-content: space-between;
 }
+
+.diff-buttons {
+  margin-bottom: 8px;
+  padding: 0px 5px;
+  width: 426px;
+}
+
+.difficulty-button {
+  margin-right: 10px;
+}
+
+.difficulty-button.active {
+  color: white;
+  background-color: blue;
+}

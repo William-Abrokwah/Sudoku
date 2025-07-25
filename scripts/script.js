@@ -16,3 +16,15 @@ function newEmptyGrid() {
 }
 
 let grid = newEmptyGrid();
+let difficulty = "Easy";
+
+// Changing difficulty 
+const difficultyButtons = document.querySelectorAll('.difficulty-button');
+
+difficultyButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    difficultyButtons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+    difficulty = button.textContent;
+  });
+});
