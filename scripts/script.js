@@ -1,7 +1,6 @@
-const grid = [];
-
-// Initializing grid and linking divs on page
-function initializeGrid() {
+// Creates a new empty grid and links to divs on page
+function newEmptyGrid() {
+  let grid = [];
   for (let row = 0; row < 9; row++) {
     grid[row] = [];
     for (let col = 0; col < 9; col++) {
@@ -13,6 +12,7 @@ function initializeGrid() {
       grid[row][col][1] = cellDiv;
     }
   }
+  return grid;
 }
 
-initializeGrid();
+let grid = newEmptyGrid();

@@ -76,7 +76,49 @@ function getSolutionCount(grid) {
   return count.value;
 }
 
-function puzzleDigger() {
-  // remove values from the grid while checking uniqueness to create puzzle
+function countClues(grid) {
+  let count = 0;
+  for (let y = 0; y < 9; y++) {
+    for (let x = 0; x < 9; x++) {
+      if (grid[y][x][0] !== 0) count++;
+    }
+  }
+  return count;
+}
+
+function generatePuzzle(difficulty) {
+  // Creating a list of the grid positions
+  let cells = [];
+  for (let y = 0; y < 9; y++) {
+    for (let x = 0; x < 9; x++) {
+      cells.push([y, x]);
+    }
+  }
+  shuffleArray(cells); // Randomizing order of positions
+
+  // Choosing clue count based on difficulty
+  const cluesNeeded = {
+    easy: 36,
+    medium: 32,
+    hard: 28,
+    expert: 17
+  }[difficulty];
+
+  // Digging holes in the grid while verifying the existence of a unique solution
+  let index = 0;
+  while (countClues(grid) > cluesNeeded && index < cells.length) {
+    const [row, col] = cells[index];
+
+    const removed = grid[row][col][0];
+    grid[row][col][0] = 0;
+
+    if (getSolutionCount(grid) != 1) {
+      grid[row][col][0] = removed;
+    }
+
+    index++
+  }
+
+  return grid;
 }
 

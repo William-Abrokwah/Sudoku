@@ -31,7 +31,7 @@ resetButton.addEventListener('click', () => {
 
 // Creating a new board
 function newGame() {
-  initializeGrid();
+  grid = newEmptyGrid();
   solveSudoku(grid);
 
   for (let row = 0; row < 9; row++) {
