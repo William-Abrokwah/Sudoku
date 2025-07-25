@@ -47,6 +47,35 @@ function solveSudoku(grid) {
   return true;
 }
 
+function countSolutions(grid, count) {
+ for (let row = 0; row < 9; row++) {
+    for (let col = 0; col < 9; col++) {
+      if (grid[row][col][0] === 0) {
+        for (let num = 1; num <=9; num++) {
+          if (isValid(grid, row, col, num)) {
+            grid[row][col][0] = num;
+            countSolutions(grid, count);
+            grid[row][col][0] = 0;
+
+            // Early exit if more than 1 solution
+            if (count.value > 1) return; 
+          }
+        }
+        return;
+      }
+    }
+  }
+
+  // Found a complete valid solution
+  count.value++;
+}
+
+function getSolutionCount(grid) {
+  const count = { value: 0 };
+  countSolutions(grid, count);
+  return count.value;
+}
+
 function puzzleDigger() {
   // remove values from the grid while checking uniqueness to create puzzle
 }
