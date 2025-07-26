@@ -47,13 +47,28 @@ body {
   text-align: center;
 }
 
-.check-button:hover  {
+.check-button:hover,
+.reset-button:hover  {
   background-color: #5c82d3;
   cursor: pointer;
 }
 
-.check-button:active {
+.check-button:active,
+.reset-button:active {
   border: none;
   color: white;
   background-color: #2e53a1;
+}
+
+.reset-button {
+  margin-top: 4px;
+  height: 60px;
+  width: 139px;
+  background-color: #325aaf;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
 }

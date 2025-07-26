@@ -1,3 +1,26 @@
+// Helper function to update cell value in grid
+function updateCellValue(selectedCell, value) {
+  const cellID = selectedCell.id;
+  const parts = cellID.replace("cell-", "").split("-");
+
+  const row = parseInt(parts[0], 10);
+  const col = parseInt(parts[1], 10);
+  grid[row][col][0] = value;
+}
+
+// Helper function to copy cell values in grid
+/*function copyGridValues(grid) {
+  let gridValues = []
+  for (let row = 0; row < 9; row++) {
+    gridValues[row] = [];
+    for (let col = 0; col < 9; col++) {
+      gridValues[row][col] = gridCopy[row][col][0];
+    }
+  }
+
+  return gridValues;
+}*/
+
 // Selecting a cell
 const cells = document.querySelectorAll('.sudoku-cell');
 let selectedCell = null;
@@ -9,16 +32,6 @@ cells.forEach(cell => {
     selectedCell = cell;
   });
 });
-
-// Helping function to update cell value in grid
-function updateCellValue(selectedCell, value) {
-  const cellID = selectedCell.id;
-  const parts = cellID.replace("cell-", "").split("-");
-
-  const row = parseInt(parts[0], 10);
-  const col = parseInt(parts[1], 10);
-  grid[row][col][0] = value;
-}
 
 // Changing the value of a cell using numpad
 const numpadButtons = document.querySelectorAll('.numpad-item');
@@ -32,8 +45,8 @@ numpadButtons.forEach(button => {
 });
 
 // Resetting the value of a cell
-const resetButton = document.getElementById('reset-button')
-resetButton.addEventListener('click', () => {
+const eraseButton = document.getElementById('erase-button')
+eraseButton.addEventListener('click', () => {
   if (selectedCell && !selectedCell.classList.contains('clue')) {
     selectedCell.textContent = '';
     updateCellValue(selectedCell, 0);
@@ -57,4 +70,14 @@ function newGame() {
     }
   }
   // COME BACK TO LATER
+}
+
+// Resting board to original state
+function resetBoard() {
+  cells.forEach(cell => {
+    if (!cell.classList.contains('clue')) {
+      cell.textContent = "";
+      updateCellValue(cell, 0);
+    }
+  }); 
 }
