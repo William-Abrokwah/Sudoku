@@ -1,10 +1,10 @@
-function isValid(grid, row, col, num) {
-  // Verifying row
+function isValidPlacement(grid, row, col, num) {
+  // Verifying column
   for (let x = 0; x < 9; x++) {
     if (grid[row][x][0] === num) return false;
   }
 
-  // Verifying column
+  // Verifying row
   for (let y = 0; y < 9; y++) {
     if (grid[y][col][0] === num) return false;
   }
@@ -34,7 +34,7 @@ function solveSudoku(grid) {
       if (grid[row][col][0] === 0) {
         const numbers = shuffleArray([1, 2, 3, 4, 5, 6, 7, 8, 9]); // Randomizing order
         for (let num of numbers) {
-          if (isValid(grid, row, col, num)) {
+          if (isValidPlacement(grid, row, col, num)) {
             grid[row][col][0] = num;
             if (solveSudoku(grid)) return true;
             grid[row][col][0] = 0;
@@ -52,7 +52,7 @@ function countSolutions(grid, count) {
     for (let col = 0; col < 9; col++) {
       if (grid[row][col][0] === 0) {
         for (let num = 1; num <=9; num++) {
-          if (isValid(grid, row, col, num)) {
+          if (isValidPlacement(grid, row, col, num)) {
             grid[row][col][0] = num;
             countSolutions(grid, count);
             grid[row][col][0] = 0;
@@ -120,4 +120,26 @@ function generatePuzzle(difficulty) {
   }
 
   return grid;
+}
+
+function isValidInput(grid, row, col, num) {
+  // Verifying column
+  for (let x = 0; x < 9; x++) {
+    if (grid[row][x][0] === num && x !== col) return false;
+  }
+
+  // Verifying row
+  for (let y = 0; y < 9; y++) {
+    if (grid[y][col][0] === num && y !== row) return false;
+  }
+
+  // Verifying 3x3 quadrant
+  let startRow = Math.floor(row / 3) * 3;
+  let startCol = Math.floor(col / 3) * 3;
+  for (let y = startRow; y < startRow + 3; y++) {
+    for (let x = startCol; x < startCol + 3; x++) {
+      if (grid[y][x][0] === num && y !== row && x !== col) return false;
+    }
+  }
+  return true;
 }

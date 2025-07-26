@@ -118,7 +118,6 @@
           <button id="erase-button" class="game-control-button nav-button"><img class="game-control-icon" src="images/eraser.svg" alt=""></button>
           <button class="game-control-button nav-button"><img class="game-control-icon" src="images/pencil.svg" alt=""></button>
           <button class="game-control-button nav-button"><img class="game-control-icon" src="images/light-bulb.svg" alt=""></button>
-          <!--Add check button-->
         </div>
 
         <div class="numpad">
@@ -137,8 +136,9 @@
       </div>
     </div>
 
-    <button class="check-button">Check</button>
+    <button onclick="checkBoard();" class="check-button">Check</button>
     <button onclick="resetBoard();" class="reset-button">Reset</button>
+    <p id="result"></p>
     
     <script src="scripts/script.js"></script>
     <script src="scripts/board.js"></script>

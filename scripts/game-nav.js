@@ -1,10 +1,21 @@
-// Helper function to update cell value in grid
-function updateCellValue(selectedCell, value) {
-  const cellID = selectedCell.id;
+// Helper function to get cell position in grid
+function getCellPosition(cell) {
+  const cellID = cell.id;
   const parts = cellID.replace("cell-", "").split("-");
 
   const row = parseInt(parts[0], 10);
   const col = parseInt(parts[1], 10);
+
+  return [row, col];
+}
+
+// Helper function to update cell value in grid
+function updateCellValue(cell, value) {
+  const position = getCellPosition(cell);
+
+  const row = position[0];
+  const col = position[1];
+  
   grid[row][col][0] = value;
 }
 
@@ -69,10 +80,16 @@ function newGame() {
       }
     }
   }
+
+  // Resetting puzzle result
+  let resultElement = document.getElementById("result");
+  resultElement.textContent = "";
+  resultElement.classList.remove('.result');
+
   // COME BACK TO LATER
 }
 
-// Resting board to original state
+// Reseting board to original state
 function resetBoard() {
   cells.forEach(cell => {
     if (!cell.classList.contains('clue')) {
@@ -80,4 +97,41 @@ function resetBoard() {
       updateCellValue(cell, 0);
     }
   }); 
+
+  // Resetting puzzle result
+  let resultElement = document.getElementById("result");
+  resultElement.textContent = "";
+  resultElement.classList.remove('.result');
+}
+
+function checkBoard() {
+  let emptyCell = false
+  let mistakes = 0;
+
+  cells.forEach(cell => {
+    if (!cell.classList.contains('clue')) {
+      let coords = getCellPosition(cell);
+      let num = parseInt(cell.textContent);
+      
+      if(!isValidInput(grid, coords[0], coords[1], num)) {
+        mistakes++;
+      }
+
+      if (cell.textContent === "") {
+        emptyCell = true;
+      }
+    }
+  });
+
+  // Different result displays
+  let resultElement = document.getElementById("result");
+  resultElement.classList.add('result');
+
+  if (mistakes === 0 && !emptyCell) {
+    resultElement.textContent = "You have successfully completed the puzzle!!! Well done :)";
+  } else if (mistakes !== 0) {
+    resultElement.textContent = `You have ${mistakes} mistakes! Check again :(`;
+  } else if (emptyCell) {
+    resultElement.textContent = `You have ${mistakes} mistakes! But you aren't done yet :)`;
+  }
 }
