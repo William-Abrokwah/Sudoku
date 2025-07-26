@@ -11,9 +11,14 @@ function newEmptyGrid() {
       const cellDiv = document.getElementById(cellID);
       grid[row][col][1] = cellDiv;
 
-    // Adds borders to inner cells
-    if (col % 3 === 0 || col % 3 === 1) cellDiv.classList.add('right-border');
-    if (row % 3 === 0 || row % 3 === 1) cellDiv.classList.add('bottom-border');
+      // Removing clue class from cells if exists
+      if (cellDiv.classList.contains('clue')) {
+        cellDiv.classList.remove('clue');
+      }
+
+      // Adds borders to inner cells
+      if (col % 3 === 0 || col % 3 === 1) cellDiv.classList.add('right-border');
+      if (row % 3 === 0 || row % 3 === 1) cellDiv.classList.add('bottom-border');
     }
   }
   return grid;

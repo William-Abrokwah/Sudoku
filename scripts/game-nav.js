@@ -14,7 +14,7 @@ cells.forEach(cell => {
 const numpadButtons = document.querySelectorAll('.numpad-item');
 numpadButtons.forEach(button => {
   button.addEventListener('click', () => {
-    if (selectedCell /*&& !selectedCell.classList.contains('clue')*/) {
+    if (selectedCell && !selectedCell.classList.contains('clue')) {
       selectedCell.textContent = button.textContent;
       // Make it change value in grid array as well
     }
@@ -24,7 +24,7 @@ numpadButtons.forEach(button => {
 // Resetting the value of a cell
 const resetButton = document.getElementById('reset-button')
 resetButton.addEventListener('click', () => {
-  if (selectedCell /*&& !selectedCell.classList.contains('clue')*/) {
+  if (selectedCell && !selectedCell.classList.contains('clue')) {
     selectedCell.textContent = '';
     // Make it change value in grid array as well
   }
@@ -42,7 +42,7 @@ function newGame() {
         grid[row][col][1].textContent = "";
       } else {
         grid[row][col][1].textContent = grid[row][col][0];
-        //grid[row][col][1].classList.add('clue');
+        grid[row][col][1].classList.add('clue');
       }
     }
   }
