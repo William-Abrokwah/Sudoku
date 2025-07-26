@@ -13,9 +13,9 @@ A simple, interactive Sudoku game built using HTML, CSS, and JavaScript. This pr
 
 ## 🛠️ Tech Stack / Tools
 
-HTML
-CSS 
-Javascript
+- HTML
+- CSS 
+- Javascript
 
 ## Usage
 
