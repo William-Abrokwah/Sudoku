@@ -2,6 +2,8 @@
 
 A simple, interactive Sudoku game built using HTML, CSS, and JavaScript. This project allows users to play Sudoku directly in the browser, with basic functionality like puzzle generation, input validation, and a clean, responsive interface.
 
+<p> <img src="images/screenshot.png" alt="Sudoku Board Screenshot" width="500px"></p>
+
 ## 🚀 Features
 - Interactive Grid: 9x9 Sudoku grid that responds to user clicks
 - Difficulty Modes: Easy, Medium, Hard, Expert
