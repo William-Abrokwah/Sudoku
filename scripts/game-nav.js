@@ -10,13 +10,23 @@ cells.forEach(cell => {
   });
 });
 
+// Helping function to update cell value in grid
+function updateCellValue(selectedCell, value) {
+  const cellID = selectedCell.id;
+  const parts = cellID.replace("cell-", "").split("-");
+
+  const row = parseInt(parts[0], 10);
+  const col = parseInt(parts[1], 10);
+  grid[row][col][0] = value;
+}
+
 // Changing the value of a cell using numpad
 const numpadButtons = document.querySelectorAll('.numpad-item');
 numpadButtons.forEach(button => {
   button.addEventListener('click', () => {
     if (selectedCell && !selectedCell.classList.contains('clue')) {
       selectedCell.textContent = button.textContent;
-      // Make it change value in grid array as well
+      updateCellValue(selectedCell, parseInt(button.textContent, 10) );
     }
   });
 });
@@ -26,7 +36,7 @@ const resetButton = document.getElementById('reset-button')
 resetButton.addEventListener('click', () => {
   if (selectedCell && !selectedCell.classList.contains('clue')) {
     selectedCell.textContent = '';
-    // Make it change value in grid array as well
+    updateCellValue(selectedCell, 0);
   }
 });
 
